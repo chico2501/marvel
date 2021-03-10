@@ -1,6 +1,5 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
-// eslint-disable-next-line import/no-unresolved
-import PropTypes from 'prop-types';
 import Card from '../Card';
 import './style.scss';
 
@@ -22,12 +21,5 @@ const ComicList = ({
     ))}
   </ul>
 );
-
-ComicList.propTypes = {
-  searchResults: PropTypes.shape.isRequired,
-  selectedComics: PropTypes.shape.isRequired,
-  handleComic: PropTypes.func.isRequired,
-  openModal: PropTypes.func.isRequired,
-};
 
 export default ComicList;

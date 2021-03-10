@@ -1,13 +1,11 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
-// eslint-disable-next-line import/no-unresolved
-import PropTypes from 'prop-types';
 import { MdFavorite } from 'react-icons/md';
 import './style.scss';
 
 const Card = ({ comic, handleComic, openModal, selectedComics }) => {
   const statusCard = selectedComics.find((c) => c.id === comic.id);
 
-  console.log(statusCard);
   return (
     <li className={`item ${statusCard ? 'ativo' : ''}`}>
       <div className="infos">
@@ -29,13 +27,6 @@ const Card = ({ comic, handleComic, openModal, selectedComics }) => {
       </button>
     </li>
   );
-};
-
-Card.propTypes = {
-  comic: PropTypes.shape.isRequired,
-  selectedComics: PropTypes.shape.isRequired,
-  handleComic: PropTypes.func.isRequired,
-  openModal: PropTypes.func.isRequired,
 };
 
 export default Card;
