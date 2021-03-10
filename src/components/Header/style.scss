@@ -1,0 +1,19 @@
+header {
+  width: 100vw;
+  position: fixed;
+  height: 52px;
+  border-bottom: 1px solid #393939;
+  background-color: #202020;
+  z-index: 1;
+  display: flex;
+  padding: 0 30px;
+  justify-content: center;
+  a {
+    display: block;
+    width: auto;
+    text-align: center;
+    img {
+      height: 100%;
+    }
+  }
+}

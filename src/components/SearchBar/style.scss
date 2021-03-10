@@ -1,0 +1,17 @@
+.search {
+  width: 100vw;
+  position: fixed;
+  top: 52px;
+  height: 52px;
+  border-bottom: 1px solid #393939;
+  background-color: #202020;
+  z-index: 1;
+  display: flex;
+  padding: 10px;
+  justify-content: center;
+  .inputbox {
+    width: 300px;
+    padding: 5px 20px;
+    border: 1px solid #393939;
+  }
+}

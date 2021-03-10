@@ -1,0 +1,14 @@
+ul.lista {
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-rows: auto;
+  column-gap: 2px;
+  row-gap: 2px;
+  max-width: 1190px;
+  @media (max-width: 1230px) {
+    grid-template-columns: 33% 33% 33%;
+  }
+  @media (max-width: 860px) {
+    grid-template-columns: 100%;
+  }
+}

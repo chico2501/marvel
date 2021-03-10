@@ -1,0 +1,23 @@
+footer {
+  width: 100%;
+  height: auto;
+  border-top: 1px solid #393939;
+  background-color: none;
+  z-index: 1;
+  display: flex;
+  padding: 30px 30px;
+  justify-content: center;
+  button {
+    padding: 15px 15px;
+    border: none;
+    background: #c00;
+    font-size: 16px;
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    &:hover {
+      background: #000;
+    }
+  }
+}
