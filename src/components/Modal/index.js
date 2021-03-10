@@ -1,5 +1,6 @@
 import React from 'react';
 import parse from 'html-react-parser';
+// eslint-disable-next-line import/no-unresolved
 import PropTypes from 'prop-types';
 import './style.scss';
 

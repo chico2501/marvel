@@ -1,4 +1,5 @@
 import React from 'react';
+// eslint-disable-next-line import/no-unresolved
 import PropTypes from 'prop-types';
 import { MdFavorite } from 'react-icons/md';
 import './style.scss';
