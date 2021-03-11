@@ -17,7 +17,7 @@ const Footer = ({ selectedComics }) => {
 
       return m;
     }
-    return false;
+    return true;
   };
 
   useEffect(() => {
