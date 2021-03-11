@@ -17,3 +17,5 @@ React JS, JavaScript, SASS, consumo da API via Axios.
 ### Demo
 
 A demonstração do site está hospedada no netlify.com. Link de acesso: https://affectionate-hamilton-9b925b.netlify.app/
+
+O envio de e-mail está utilizando o serviço do EmailJS. Foi configurado a forma mais básica dele, sem server-side. Porém está indisponível no momento.
