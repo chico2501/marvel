@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
+import parse from 'html-react-parser';
 import './style.scss';
 
 const Footer = ({ selectedComics }) => {
@@ -12,9 +13,17 @@ const Footer = ({ selectedComics }) => {
   });
 
   const buildMessage = (comics) => {
+    let m = '';
     if (comics) {
-      const m = comics.map((c) => c.title);
+      comics.map((c) => {
+        m += `<h3>${c.title}</h3><img src='${c.thumbnail.path}.${
+          c.thumbnail.extension
+        }' alt='${c.title}' /><p>${c.description && parse(c.description)}</p>`;
 
+        return m;
+      });
+
+      console.log('m', m);
       return m;
     }
     return true;
@@ -24,36 +33,40 @@ const Footer = ({ selectedComics }) => {
     setEmailInfos({ ...emailInfos, message: buildMessage(selectedComics) });
   }, []);
 
-  // console.log('selectedComics', selectedComics);
+  console.log('selectedComics', emailInfos);
 
-  // const sendFeedback = (templateId, variables) => {
-  //   // window.emailjs
-  //   //   .send('gmail', templateId, variables)
-  //   //   .then((res) => {
-  //   //     console.log('Email successfully sent!');
-  //   //   })
-  //   //   // Handle errors here however you like, or use a React error boundary
-  //   //   .catch((err) =>
-  //   //     console.error(
-  //   //       'Oh well, you failed. Here some thoughts on the error that occured:',
-  //   //       err
-  //   //     )
-  //   //   );
-  // };
+  const sendFeedback = (templateId, variables) => {
+    window.emailjs
+      .send('gmail', templateId, variables)
+      .then((res) => {
+        console.log('Email successfully sent!');
+      })
+      // Handle errors here however you like, or use a React error boundary
+      .catch((err) =>
+        console.error(
+          'Oh well, you failed. Here some thoughts on the error that occured:',
+          err
+        )
+      );
+  };
 
   const handleSubmit = () => {
-    // sendFeedback(templateId, {
-    //   message_html: message,
-    //   from_name: name,
-    //   reply_to: email,
-    // });
+    sendFeedback(emailInfos.templateId, {
+      message_html: emailInfos.message,
+      from_name: emailInfos.name,
+      reply_to: emailInfos.email,
+    });
   };
 
   return (
     <footer>
-      <button type="button" onClick={(e) => handleSubmit(e)}>
-        Enviar Selecionados por e-mail
-      </button>
+      {selectedComics.length > 0 ? (
+        <button type="button" onClick={(e) => handleSubmit(e)}>
+          Enviar Selecionados por e-mail
+        </button>
+      ) : (
+        ''
+      )}
     </footer>
   );
 };
