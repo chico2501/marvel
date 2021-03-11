@@ -1,5 +1,4 @@
 import React from 'react';
-// eslint-disable-next-line import/no-unresolved
 import PropTypes from 'prop-types';
 import './style.scss';
 
@@ -15,7 +14,7 @@ const SearchBar = ({ searchStatus, searchTerm, searchComic }) => (
         onChange={searchComic}
       />
     </div>
-    {searchStatus && <div className="notfound">Nenhum produto encontrado.</div>}
+    {searchStatus && <div className="notfound">Nenhum comic encontrado.</div>}
   </>
 );
 
