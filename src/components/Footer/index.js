@@ -9,6 +9,8 @@ const Footer = ({ selectedComics }) => {
     email: 'nos7manjibr@gmail.com',
     name: 'Marvel Prov',
     templateId: 'template_5nt8bs8',
+    serviceId: 'service_xd3h3j8',
+    userId: 'user_FkySdslmr264r4HF8oD3c',
     message: null,
   });
 
@@ -29,9 +31,9 @@ const Footer = ({ selectedComics }) => {
     setEmailInfos({ ...emailInfos, message: buildMessage(selectedComics) });
   }, []);
 
-  const sendFeedback = (templateId, variables) => {
+  const sendFeedback = (serviceId, templateId, variables, userId) => {
     window.emailjs
-      .send('gmail', templateId, variables)
+      .send(serviceId, templateId, variables, userId)
       .then((res) => {
         console.log('Email successfully sent!');
       })
@@ -45,11 +47,16 @@ const Footer = ({ selectedComics }) => {
   };
 
   const handleSubmit = () => {
-    sendFeedback(emailInfos.templateId, {
-      message_html: emailInfos.message,
-      from_name: emailInfos.name,
-      reply_to: emailInfos.email,
-    });
+    sendFeedback(
+      emailInfos.serviceId,
+      emailInfos.templateId,
+      {
+        message_html: emailInfos.message,
+        from_name: emailInfos.name,
+        reply_to: emailInfos.email,
+      },
+      emailInfos.userId
+    );
   };
 
   return (
