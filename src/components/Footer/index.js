@@ -22,18 +22,12 @@ const Footer = ({ selectedComics }) => {
 
         return m;
       });
-
-      console.log('m', m);
-      return m;
     }
-    return true;
   };
 
   useEffect(() => {
     setEmailInfos({ ...emailInfos, message: buildMessage(selectedComics) });
   }, []);
-
-  console.log('selectedComics', emailInfos);
 
   const sendFeedback = (templateId, variables) => {
     window.emailjs
