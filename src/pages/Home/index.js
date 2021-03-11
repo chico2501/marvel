@@ -116,6 +116,8 @@ const Home = () => {
     setSearchTerm(e.target.value);
   };
 
+  console.log('selectedComics2', selectedComics);
+
   return (
     <div className="container">
       {statusModal.status && (
@@ -134,7 +136,7 @@ const Home = () => {
         openModal={openModal}
       />
 
-      <Footer />
+      <Footer selectedComics={selectedComics} />
     </div>
   );
 };
