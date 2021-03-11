@@ -1,4 +1,4 @@
-# marvel
+# MARVEL COMICS
 
 Página que faz consulta na API da Marvel.
 
