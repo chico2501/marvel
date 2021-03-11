@@ -25,7 +25,6 @@ const Footer = ({ selectedComics }) => {
   }, []);
 
   // console.log('selectedComics', selectedComics);
-  console.log('emailInfos', emailInfos);
 
   // const sendFeedback = (templateId, variables) => {
   //   // window.emailjs
