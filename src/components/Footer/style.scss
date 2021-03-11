@@ -7,17 +7,30 @@ footer {
   display: flex;
   padding: 30px 30px;
   justify-content: center;
-  button {
-    padding: 15px 15px;
-    border: none;
-    background: #c00;
-    font-size: 16px;
-    color: #fff;
-    font-weight: bold;
-    text-transform: uppercase;
-    cursor: pointer;
-    &:hover {
-      background: #000;
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    input {
+      padding: 15px 15px;
+      border: none;
+      background: #c00;
+      font-size: 16px;
+      color: #fff;
+      font-weight: bold;
+      text-transform: uppercase;
+      cursor: pointer;
+      &:hover {
+        background: #000;
+      }
+    }
+    .status_email {
+      margin-top: 10px;
+      display: none;
+      color: rgb(96, 223, 84);
+      &.ativo {
+        display: block;
+      }
     }
   }
 }

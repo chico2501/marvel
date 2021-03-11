@@ -9,9 +9,10 @@ const Footer = ({ selectedComics }) => {
     email: 'nos7manjibr@gmail.com',
     name: 'Marvel Prov',
     templateId: 'template_5nt8bs8',
-    serviceId: 'service_xd3h3j8',
+    serviceId: 'service_255x17c',
     userId: 'user_FkySdslmr264r4HF8oD3c',
     message: null,
+    statusSent: false,
   });
 
   const buildMessage = (comics) => {
@@ -25,17 +26,14 @@ const Footer = ({ selectedComics }) => {
         return m;
       });
     }
+    return m;
   };
-
-  useEffect(() => {
-    setEmailInfos({ ...emailInfos, message: buildMessage(selectedComics) });
-  }, []);
 
   const sendFeedback = (serviceId, templateId, variables, userId) => {
     window.emailjs
       .send(serviceId, templateId, variables, userId)
       .then((res) => {
-        console.log('Email successfully sent!');
+        setEmailInfos({ ...emailInfos, statusSent: true });
       })
       // Handle errors here however you like, or use a React error boundary
       .catch((err) =>
@@ -47,11 +45,12 @@ const Footer = ({ selectedComics }) => {
   };
 
   const handleSubmit = () => {
+    const message = selectedComics;
     sendFeedback(
       emailInfos.serviceId,
       emailInfos.templateId,
       {
-        message_html: emailInfos.message,
+        message_html: buildMessage(selectedComics),
         from_name: emailInfos.name,
         reply_to: emailInfos.email,
       },
@@ -62,9 +61,16 @@ const Footer = ({ selectedComics }) => {
   return (
     <footer>
       {selectedComics.length > 0 ? (
-        <button type="button" onClick={(e) => handleSubmit(e)}>
-          Enviar Selecionados por e-mail
-        </button>
+        <form className="form" id="contact-form">
+          <input
+            onClick={() => handleSubmit()}
+            type="button"
+            value="Enviar Selecionados por e-mail"
+          />
+          <span className={`status_email ${emailInfos.statusSent && 'ativo'}`}>
+            E-mail enviado com sucesso!
+          </span>
+        </form>
       ) : (
         ''
       )}
