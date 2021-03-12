@@ -1,10 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { MdSearch } from 'react-icons/md';
 import './style.scss';
 
 const SearchBar = ({ searchStatus, searchTerm, searchComic }) => (
   <>
     <div className="search">
+      <MdSearch size={30} />
       <input
         className="inputbox"
         type="text"

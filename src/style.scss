@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -7,7 +9,13 @@
 body {
   background: #121214;
   color: #fff;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Roboto', sans-serif;
+}
+
+input,
+button,
+textarea {
+  font-family: 'Roboto', sans-serif;
 }
 
 @media (max-width: 1080px) {
