@@ -22,4 +22,6 @@ O envio de e-mail está utilizando o serviço do EmailJS. Foi configurado a form
 
 
 ### Updates
+12-03-2021 - Correção do bug da seleção do comics e inclusão da font Roboto.
+
 11-03-2021 - Correção da autenticação de envio de e-mail no EmailJS.
