@@ -95,9 +95,10 @@ const Home = () => {
   const handleComic = (id) => {
     let newSelected = null;
     const selected = selectedComics.find((c) => c.id === id);
+
     if (selected) {
-      newSelected = selectedComics.filter((c) => c.id === id);
-      setSelectedComics([newSelected]);
+      newSelected = selectedComics.filter((c) => c.id !== id);
+      setSelectedComics(newSelected);
     } else selectComic(id, 'select');
   };
 
